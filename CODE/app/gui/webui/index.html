@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Karauli Shankar Mahadev — Central Command</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="ksm-root" data-theme="scifi">
+
+  <div id="ksm-topbar">
+    <div style="display:flex;align-items:center">
+      <span id="ksm-title">KARAULI SHANKAR MAHADEV — CENTRAL COMMAND</span>
+      <span id="ksm-clock">--</span>
+      <span id="ksm-syncchip" class="ksm-syncchip off" data-state="off" title="Online copy status">Off</span>
+    </div>
+    <div id="ksm-themerow"></div>
+  </div>
+
+  <div id="ksm-banner" hidden></div>
+
+  <div id="ksm-tabnav">
+    <button class="ksm-tbtn active" data-tab="matrix">MATRIX</button>
+    <button class="ksm-tbtn" data-tab="chat">AI CHAT</button>
+    <button class="ksm-tbtn" data-tab="strategy">STRATEGY</button>
+    <button class="ksm-tbtn" data-tab="screen">SCREEN SCAN</button>
+    <button class="ksm-tbtn" data-tab="mobile">MOBILE SYNC</button>
+    <button class="ksm-tbtn" data-tab="prompts">PROMPTS</button>
+    <button class="ksm-tbtn" data-tab="settings">SETTINGS</button>
+    <button class="ksm-tbtn" data-tab="debug">DEBUG LOG</button>
+  </div>
+
+  <div id="ksm-panes">
+
+    <!-- MATRIX -->
+    <div class="ksm-pane visible" id="ksm-pane-matrix">
+      <div id="ksm-matrix-layout">
+        <div id="ksm-matrix-main">
+          <div id="ksm-warp-row">
+            <span>Warp Days:</span>
+            <input type="number" id="ksm-warp-d" value="0" />
+            <span>Hours:</span>
+            <input type="number" id="ksm-warp-h" value="0" />
+            <button class="ksm-btn ghost" id="ksm-apply-warp">Apply Warp (testing)</button>
+          </div>
+          <div class="ksm-grid-headers">
+            <span></span>
+            <span>VERY IMPORTANT</span>
+            <span>MODERATE</span>
+            <span>LESS IMPORTANT</span>
+          </div>
+          <div class="ksm-grid-body" id="ksm-grid"></div>
+        </div>
+
+        <div id="ksm-side">
+          <div class="ksm-panel">
+            <p class="ksm-panel-title urgent">URGENT NOW</p>
+            <div class="ksm-list" id="ksm-urgent-list"></div>
+          </div>
+          <div class="ksm-panel">
+            <p class="ksm-panel-title todo">TO-DO</p>
+            <div class="ksm-list" id="ksm-todo-list"></div>
+          </div>
+          <div class="ksm-panel">
+            <p class="ksm-panel-title" style="color:var(--text2)">ADD TASK</p>
+            <label class="ksm-flabel">Title</label>
+            <input type="text" id="ksm-f-title" />
+            <div class="ksm-form-row">
+              <div>
+                <label class="ksm-flabel">Importance</label>
+                <select id="ksm-f-imp"><option value="3">3 — High</option><option value="2">2</option><option value="1">1 — Low</option></select>
+              </div>
+              <div>
+                <label class="ksm-flabel">Urgency</label>
+                <select id="ksm-f-urg"><option value="3">3 — High</option><option value="2">2</option><option value="1">1 — Low</option></select>
+              </div>
+            </div>
+            <div class="ksm-form-row">
+              <div>
+                <label class="ksm-flabel">Deadline date</label>
+                <input type="date" id="ksm-f-date" />
+              </div>
+              <div>
+                <label class="ksm-flabel">Deadline time</label>
+                <input type="time" id="ksm-f-time" value="23:59:59" step="1" />
+              </div>
+            </div>
+            <button class="ksm-btn block" id="ksm-add-task">+ ADD</button>
+          </div>
+          <div class="ksm-panel" style="flex:1;min-height:0;overflow:auto">
+            <p class="ksm-panel-title" style="color:var(--text2)">TASK DETAILS</p>
+            <div id="ksm-detail-body">
+              <p class="ksm-empty-hint">Click a task to see details.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHAT -->
+    <div class="ksm-pane" id="ksm-pane-chat">
+      <div id="ksm-chat-display"></div>
+      <div id="ksm-chat-controls">
+        <button class="ksm-btn danger" id="ksm-clear-chat">Start New Chat (clear context)</button>
+      </div>
+      <div id="ksm-chat-entry-row">
+        <input type="text" id="ksm-chat-entry" placeholder="Type a message and press Enter..." />
+        <button class="ksm-btn" id="ksm-chat-send">SEND</button>
+      </div>
+    </div>
+
+    <!-- STRATEGY -->
+    <div class="ksm-pane" id="ksm-pane-strategy">
+      <div id="ksm-strategy-title">STRATEGIC DATA ANALYSIS</div>
+      <button class="ksm-btn" id="ksm-run-audit">RUN FULL MATRIX AUDIT</button>
+      <div id="ksm-audit-display"></div>
+    </div>
+
+    <!-- SCREEN SCAN -->
+    <div class="ksm-pane" id="ksm-pane-screen">
+      <div id="ksm-screen-controls">
+        <button class="ksm-btn" id="ksm-scan-btn">SCAN MY SCREEN</button>
+        <label class="ksm-check"><input type="checkbox" id="ksm-scan-hide" checked /> Hide this window while capturing</label>
+        <label class="ksm-check">Display
+          <select id="ksm-scan-monitor">
+            <option value="1">Primary</option>
+            <option value="2">Second</option>
+            <option value="0">All (stitched)</option>
+          </select>
+        </label>
+        <input type="text" id="ksm-scan-question" placeholder="Optional: ask something specific about the screen..." />
+      </div>
+      <div id="ksm-scan-status">Ready.</div>
+      <div id="ksm-scan-body">
+        <div id="ksm-scan-left">
+          <p class="ksm-panel-title" style="color:var(--text2)">LAST SCREENSHOT</p>
+          <img id="ksm-scan-preview" alt="" />
+          <div id="ksm-scan-meta"></div>
+        </div>
+        <div id="ksm-scan-result">Press "SCAN MY SCREEN". The app takes a screenshot, sends it to the AI with the prompt in prompts/screen_analyzer.txt, and the answer appears here.
+Note: the screenshot is uploaded to Google's Gemini API.</div>
+      </div>
+    </div>
+
+    <!-- MOBILE SYNC -->
+    <div class="ksm-pane" id="ksm-pane-mobile">
+      <div id="ksm-bridge-status">
+        <span class="ksm-dot bad" id="ksm-bridge-dot"></span>
+        <span id="ksm-bridge-text">Checking Firebase sync status...</span>
+      </div>
+      <div id="ksm-syncpanel" class="ksm-panel">
+        <div class="ksm-panel-title">ONLINE COPY</div>
+        <div id="ksm-sync-last">Last sync: checking...</div>
+        <div id="ksm-sync-btns">
+          <button class="ksm-btn" id="ksm-sync-now">SYNC NOW</button>
+          <button class="ksm-btn ghost" id="ksm-sync-export">EXPORT CLOUD DATA</button>
+        </div>
+        <div id="ksm-sync-msg" role="status" aria-live="polite"></div>
+        <div id="ksm-sync-note">Nothing is uploaded unless you turn on an "Online copy" switch in the SETTINGS tab. Export only downloads what is already kept online, as a file on this computer.</div>
+      </div>
+      <div id="ksm-bridge-log"></div>
+    </div>
+
+    <!-- PROMPTS -->
+    <div class="ksm-pane" id="ksm-pane-prompts">
+      <div id="ksm-pr-top">
+        <div id="ksm-pr-roles" role="group" aria-label="Prompt for"></div>
+        <div id="ksm-pr-status" role="status" aria-live="polite"></div>
+      </div>
+      <div id="ksm-pr-notes" class="ksm-set-notice warn" hidden></div>
+      <div id="ksm-pr-msg" role="status" aria-live="polite"></div>
+      <div id="ksm-pr-list"></div>
+      <div id="ksm-pr-editor" class="ksm-set-card" hidden>
+        <div id="ksm-pr-head"></div>
+        <div id="ksm-pr-conflict" class="ksm-set-notice warn" hidden></div>
+        <div id="ksm-pr-blocks"></div>
+        <div id="ksm-pr-problems"></div>
+        <div id="ksm-pr-actions" class="ksm-set-row-actions">
+          <button class="ksm-btn" id="ksm-pr-save" type="button">Save</button>
+          <input type="text" id="ksm-pr-newname" placeholder="Name for a new prompt" maxlength="100" aria-label="Name for a new prompt" />
+          <button class="ksm-btn ghost" id="ksm-pr-saveas" type="button">Save as new</button>
+          <button class="ksm-btn ghost" id="ksm-pr-addblock" type="button">Add your own block</button>
+          <button class="ksm-btn ghost" id="ksm-pr-previewbtn" type="button">Preview</button>
+          <button class="ksm-btn ghost" id="ksm-pr-historybtn" type="button">History</button>
+          <button class="ksm-btn ghost" id="ksm-pr-active" type="button">Set in use</button>
+          <button class="ksm-btn ghost" id="ksm-pr-reset" type="button">Reset prompt</button>
+          <button class="ksm-btn ghost" id="ksm-pr-delete" type="button">Delete</button>
+        </div>
+      </div>
+      <div id="ksm-pr-preview" class="ksm-set-card" hidden></div>
+      <div id="ksm-pr-history" class="ksm-set-card" hidden></div>
+    </div>
+
+    <!-- SETTINGS -->
+    <div class="ksm-pane" id="ksm-pane-settings">
+      <div id="ksm-set-top">
+        <div id="ksm-set-storage"></div>
+        <div id="ksm-set-actions">
+          <input type="text" id="ksm-set-search" placeholder="Filter settings..." aria-label="Filter settings" />
+          <button class="ksm-btn ghost" id="ksm-set-import-btn">Import .env</button>
+          <button class="ksm-btn ghost" id="ksm-set-backup-btn">Backup</button>
+          <button class="ksm-btn ghost" id="ksm-set-restore-btn">Restore</button>
+          <button class="ksm-btn ghost" id="ksm-set-history-btn">History</button>
+          <button class="ksm-btn ghost" id="ksm-set-folder-btn">Open folder</button>
+        </div>
+      </div>
+      <div id="ksm-set-shared" class="ksm-set-card" hidden></div>
+      <div id="ksm-set-legacy" class="ksm-set-notice" hidden></div>
+      <div id="ksm-set-restart" class="ksm-set-notice warn" hidden></div>
+      <div id="ksm-set-status" role="status" aria-live="polite"></div>
+      <div id="ksm-set-import" class="ksm-set-card" hidden>
+        <p class="ksm-panel-title">IMPORT FROM .ENV TEXT</p>
+        <textarea id="ksm-set-import-text" rows="5" spellcheck="false"
+          placeholder="Paste the contents of an .env file here, for example:&#10;GROQ_API_KEY=gsk_...&#10;GEMINI_API_KEY=AIza..."></textarea>
+        <div class="ksm-set-row-actions">
+          <label class="ksm-check"><input type="checkbox" id="ksm-set-import-over" /> Replace values I already saved</label>
+          <button class="ksm-btn" id="ksm-set-import-go">Import pasted text</button>
+          <button class="ksm-btn ghost" id="ksm-set-import-file">Choose file...</button>
+          <button class="ksm-btn ghost" id="ksm-set-import-close">Close</button>
+        </div>
+        <div id="ksm-set-import-result"></div>
+      </div>
+      <div id="ksm-set-history" class="ksm-set-card" hidden></div>
+      <div id="ksm-set-groups"></div>
+    </div>
+
+    <!-- DEBUG LOG -->
+    <div class="ksm-pane" id="ksm-pane-debug">
+      <div id="ksm-debug-bar">
+        <button class="ksm-btn ghost" id="ksm-debug-clear">Clear view</button>
+        <label class="ksm-check"><input type="checkbox" id="ksm-debug-follow" checked /> Auto-scroll</label>
+        <select id="ksm-debug-level">
+          <option value="DEBUG">All</option>
+          <option value="INFO">Info+</option>
+          <option value="WARNING">Warnings+</option>
+          <option value="ERROR">Errors</option>
+        </select>
+        <span id="ksm-debug-file"></span>
+      </div>
+      <div id="ksm-debug-log"></div>
+    </div>
+
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>

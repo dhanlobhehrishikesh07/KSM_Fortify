@@ -1,0 +1,7 @@
+{
+  "name": "ksm-ui-smoke-tests",
+  "private": true,
+  "description": "Headless UI checks for app/gui/webui (run: npm install && npm test)",
+  "scripts": { "test": "node ui_smoke.test.js" },
+  "devDependencies": { "jsdom": "^24.1.0" }
+}

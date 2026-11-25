@@ -1,0 +1,173 @@
+[
+    {
+        "id": 101,
+        "title": "Study plan for mid-sem maths, vectors, and calculus",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 17:32:12",
+        "expected_at": "2026-03-29 23:59:59",
+        "history": [
+            "[2026-03-16 17:32:12] [AUTO] Vetted via ANDROID_APP",
+            "[2026-08-25 15:36:21] [AUTO] <24h Remaining: Urgency 2 -> 3"
+        ]
+    },
+    {
+        "id": 103,
+        "title": "Freshers' Party on 21st March",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 17:36:13",
+        "expected_at": "2026-03-21 22:00:00",
+        "history": [
+            "[2026-03-16 17:36:13] [AUTO] Vetted via ANDROID_APP",
+            "[2026-03-20 19:10:30] [MANUAL] Migrated: 2,2 -> 2,3",
+            "[2026-03-20 19:10:55] [MANUAL] Migrated: 2,3 -> 3,3"
+        ]
+    },
+    {
+        "id": 104,
+        "title": "Complete Object-Oriented Programming in Java for the mid-sem exam by at least 4 days before the exam starts",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:13:18",
+        "expected_at": "2026-03-26 23:59:59",
+        "history": [
+            "[2026-03-16 19:13:18] [AUTO] Vetted via ANDROID_APP",
+            "[2026-08-25 15:36:21] [AUTO] <24h Remaining: Urgency 2 -> 3"
+        ]
+    },
+    {
+        "id": 105,
+        "title": "Practice Object-Oriented Programming in Java for weekly labs",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:15:24",
+        "expected_at": "2026-03-20 23:59:59",
+        "history": [
+            "[2026-03-16 19:15:24] [AUTO] Vetted via ANDROID_APP",
+            "[2026-03-20 19:03:43] [AUTO] <24h Remaining: Urgency 2 -> 3",
+            "[2026-03-20 19:09:33] [MANUAL] Migrated: 2,3 -> 3,3"
+        ]
+    },
+    {
+        "id": 106,
+        "title": "Develop a working prototype for IIIT Raichur's virtual stock market game",
+        "imp": 2,
+        "urg": 3,
+        "created_at": "2026-03-16 19:17:39",
+        "expected_at": "2026-03-23 23:59:59",
+        "history": [
+            "[2026-03-16 19:17:39] [AUTO] Vetted via ANDROID_APP",
+            "[2026-08-25 15:36:21] [AUTO] <24h Remaining: Urgency 2 -> 3"
+        ]
+    },
+    {
+        "id": 107,
+        "title": "Daily 30-minute gym session",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:20:30",
+        "expected_at": "2026-03-17 18:45:00",
+        "history": [
+            "[2026-03-16 19:20:30] [AUTO] Vetted via ANDROID_APP",
+            "[2026-03-20 19:10:10] [MANUAL] Migrated: 2,3 -> 3,3"
+        ]
+    },
+    {
+        "id": 108,
+        "title": "Review Eishenhover Matrix project on Wednesday",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:22:56",
+        "expected_at": "2026-03-18 23:59:59",
+        "history": [
+            "[2026-03-16 19:22:56] [AUTO] Vetted via ANDROID_APP",
+            "[2026-03-20 19:03:43] [AUTO] <24h Remaining: Urgency 2 -> 3",
+            "[2026-03-20 19:09:53] [MANUAL] Migrated: 2,3 -> 3,3"
+        ]
+    },
+    {
+        "id": 109,
+        "title": "Research paper discussion with Dr. Bharat Soni",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:25:19",
+        "expected_at": "2026-03-19 23:59:59",
+        "history": [
+            "[2026-03-16 19:25:19] [AUTO] Vetted via ANDROID_APP"
+        ]
+    },
+    {
+        "id": 110,
+        "title": "Study for mid-sem exam discrete structure course",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:26:44",
+        "expected_at": "2026-03-25 23:59:59",
+        "history": [
+            "[2026-03-16 19:26:44] [AUTO] Vetted via ANDROID_APP",
+            "[2026-08-25 15:36:21] [AUTO] <24h Remaining: Urgency 2 -> 3"
+        ]
+    },
+    {
+        "id": 111,
+        "title": "Statement of HDFC Bank NIT",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-16 19:27:56",
+        "expected_at": "2026-03-16 23:59:59",
+        "history": [
+            "[2026-03-16 19:27:56] [AUTO] Vetted via ANDROID_APP",
+            "[2026-03-20 19:09:44] [MANUAL] Migrated: 2,3 -> 3,3"
+        ]
+    },
+    {
+        "id": 115,
+        "title": "Prepare for Deep Labs AI/ML after June 5th",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-03-17 19:22:10",
+        "expected_at": "2026-08-05 23:59:59",
+        "history": [
+            "[2026-03-17 19:22:10] [AUTO] Vetted via Local_GUI",
+            "[2026-08-25 15:36:21] [AUTO] <24h Remaining: Urgency 1 -> 3"
+        ]
+    },
+    {
+        "id": 116,
+        "title": "Buy a scientific calculator today",
+        "imp": 2,
+        "urg": 3,
+        "created_at": "2026-03-20 19:04:33",
+        "expected_at": "2026-03-20 23:59:59",
+        "history": [
+            "[2026-03-20 19:04:33] [AUTO] Vetted via ANDROID_APP"
+        ]
+    },
+    {
+        "id": 13,
+        "title": "varad ",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-08-25 15:43:55",
+        "expected_at": "2026-08-25 23:59:59",
+        "history": [
+            "[2026-08-25 15:43:55] [MANUAL] Created.",
+            "[2026-08-25 15:43:55] [AUTO] <24h Remaining: Urgency 1 -> 3"
+        ]
+    },
+    {
+        "id": 14,
+        "title": "varade",
+        "imp": 3,
+        "urg": 3,
+        "created_at": "2026-08-25 15:44:23",
+        "expected_at": "2026-08-25 23:59:59",
+        "history": [
+            "[2026-08-25 15:44:23] [MANUAL] Created.",
+            "[2026-08-25 15:44:24] [AUTO] <24h Remaining: Urgency 2 -> 3",
+            "[2026-08-25 15:44:43] [MANUAL] Migrated: 1,3 -> 2,3",
+            "[2026-08-25 15:44:57] [MANUAL] Migrated: 2,3 -> 3,3"
+        ]
+    }
+]

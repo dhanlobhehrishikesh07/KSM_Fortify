@@ -1,0 +1,11 @@
+.env
+serviceAccountKey.json
+__pycache__/
+*.pyc
+.venv/
+venv/
+logs/
+.pytest_cache/
+*.tmp
+data/*.corrupt-*
+data/backups/

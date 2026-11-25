@@ -1,0 +1,151 @@
+{
+  "rules": {
+    ".read": false,
+    ".write": false,
+
+    "ksm": {
+      ".read": "auth != null && auth.uid === 'REPLACE_WITH_OWNER_UID'",
+      ".write": "auth != null && auth.uid === 'REPLACE_WITH_OWNER_UID'",
+
+      "tasks": {
+        "$id": {
+          ".validate": "newData.child('deleted').val() === true || newData.hasChildren(['title', 'imp', 'urg', 'updated_at_ms'])",
+          "title": { ".validate": "newData.isString() && newData.val().length > 0 && newData.val().length <= 500" },
+          "imp": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 3" },
+          "urg": { ".validate": "newData.isNumber() && newData.val() >= 1 && newData.val() <= 3" },
+          "updated_at_ms": { ".validate": "newData.isNumber()" },
+          "deleted": { ".validate": "newData.isBoolean()" }
+        }
+      },
+
+      "audits": {
+        "$id": {
+          ".validate": "newData.hasChildren(['question', 'answer', 'time'])",
+          "question": { ".validate": "newData.isString() && newData.val().length <= 2000" },
+          "answer": { ".validate": "newData.isString() && newData.val().length <= 40000" },
+          "time": { ".validate": "newData.isString()" }
+        }
+      },
+
+      "scans": {
+        "$id": {
+          ".validate": "newData.hasChildren(['question', 'answer', 'time'])",
+          "question": { ".validate": "newData.isString() && newData.val().length <= 2000" },
+          "answer": { ".validate": "newData.isString() && newData.val().length <= 40000" },
+          "monitor": { ".validate": "newData.isNumber()" },
+          "model": { ".validate": "newData.isString() && newData.val().length <= 100" },
+          "time": { ".validate": "newData.isString()" }
+        }
+      },
+
+      "chats": {
+        "$session": {
+          "$msg": {
+            ".validate": "newData.hasChildren(['role', 'text', 'time'])",
+            "role": { ".validate": "newData.isString() && (newData.val() === 'user' || newData.val() === 'assistant' || newData.val() === 'marker')" },
+            "text": { ".validate": "newData.isString() && newData.val().length <= 20000" },
+            "time": { ".validate": "newData.isString()" }
+          }
+        }
+      },
+
+      "config": {
+        "settings": {
+          "$key": {
+            ".validate": "$key.matches(/^(ASSISTANT_NAME|USER_NAME|USER_PROFILE|GROQ_MODEL_ID|GEMINI_MODEL_ID|SCREEN_MODEL_ID|SYNC_TASKS|SYNC_CHAT|SYNC_AUDITS_SCANS|SYNC_PROMPTS|PROMPT_VERSIONS_KEEP)$/) && newData.hasChildren(['value', 'updated_at'])",
+            "value": { ".validate": "newData.isString() && newData.val().length <= 2000" },
+            "updated_at": { ".validate": "newData.isNumber()" },
+            "updated_by": { ".validate": "newData.isString() && newData.val().length <= 60" },
+            "$other": { ".validate": false }
+          }
+        },
+
+        "devices": {
+          "$deviceId": {
+            ".validate": "$deviceId.matches(/^d-[0-9a-f]{8}$/)",
+            "name": { ".validate": "newData.isString() && newData.val().length <= 80" },
+            "kind": { ".validate": "newData.isString() && newData.val().length <= 20" },
+            "last_seen": { ".validate": "newData.isNumber()" },
+            "settings": {
+              "$key": {
+                ".validate": "$key.matches(/^(SCREEN_MAX_WIDTH|SCREEN_JPEG_QUALITY|SCREEN_HIDE_DELAY|DATA_FILE_NAME|LOG_LEVEL|DEBUG_UI|THEME)$/) && newData.hasChildren(['value', 'updated_at'])",
+                "value": { ".validate": "newData.isString() && newData.val().length <= 2000" },
+                "updated_at": { ".validate": "newData.isNumber()" },
+                "updated_by": { ".validate": "newData.isString() && newData.val().length <= 60" },
+                "$other": { ".validate": false }
+              }
+            },
+            "$other": { ".validate": false }
+          }
+        },
+
+        "prompts": {
+          "$promptId": {
+            ".validate": "$promptId.matches(/^[A-Za-z0-9_-]{1,60}$/) && newData.hasChildren(['name', 'role', 'version'])",
+            "name": { ".validate": "newData.isString() && newData.val().length <= 100" },
+            "description": { ".validate": "newData.isString() && newData.val().length <= 500" },
+            "role": { ".validate": "newData.isString() && (newData.val() === '' || newData.val().matches(/^(chat|task_extraction|audit|screen_scan)$/))" },
+            "builtin": { ".validate": "newData.isBoolean()" },
+            "template_version": { ".validate": "newData.isNumber()" },
+            "version": { ".validate": "newData.isNumber() && newData.val() >= 0" },
+            "updated_at": { ".validate": "newData.isNumber()" },
+            "updated_by": { ".validate": "newData.isString() && newData.val().length <= 60" },
+            "blocks": {
+              "$blockId": {
+                ".validate": "$blockId.matches(/^[A-Za-z0-9_-]{1,60}$/) && !$blockId.matches(/^(categorization|confirmation|data_description|dedup_reply|input_context|output_format|trigger_rule)$/) && newData.hasChildren(['text', 'enabled'])",
+                "text": { ".validate": "newData.isString() && newData.val().length <= 4000" },
+                "enabled": { ".validate": "newData.isBoolean()" },
+                "title": { ".validate": "newData.isString() && newData.val().length <= 100" },
+                "order": { ".validate": "newData.isNumber()" },
+                "$other": { ".validate": false }
+              }
+            },
+            "$other": { ".validate": false }
+          }
+        },
+
+        "prompt_active": {
+          "$role": { ".validate": "$role.matches(/^(chat|task_extraction|audit|screen_scan)$/) && newData.isString() && newData.val().length > 0 && newData.val().length <= 60" }
+        },
+
+        "$other": { ".validate": false }
+      },
+
+      "config_versions": {
+        "prompts": {
+          "$promptId": {
+            ".validate": "$promptId.matches(/^[A-Za-z0-9_-]{1,60}$/)",
+            "$n": {
+              ".validate": "$n.matches(/^[0-9]{1,6}$/) && newData.hasChildren(['saved_at', 'blocks'])",
+              "saved_at": { ".validate": "newData.isNumber()" },
+              "saved_by": { ".validate": "newData.isString() && newData.val().length <= 60" },
+              "note": { ".validate": "newData.isString() && newData.val().length <= 500" },
+              "blocks": {
+                "$blockId": {
+                  ".validate": "$blockId.matches(/^[A-Za-z0-9_-]{1,60}$/) && !$blockId.matches(/^(categorization|confirmation|data_description|dedup_reply|input_context|output_format|trigger_rule)$/) && newData.hasChildren(['text'])",
+                  "text": { ".validate": "newData.isString() && newData.val().length <= 4000" },
+                  "enabled": { ".validate": "newData.isBoolean()" },
+                  "title": { ".validate": "newData.isString() && newData.val().length <= 100" },
+                  "order": { ".validate": "newData.isNumber()" },
+                  "$other": { ".validate": false }
+                }
+              },
+              "$other": { ".validate": false }
+            }
+          }
+        }
+      }
+    },
+
+    "incoming_tasks": {
+      ".read": "auth != null && auth.uid === 'REPLACE_WITH_OWNER_UID'",
+      ".write": "auth != null && auth.uid === 'REPLACE_WITH_OWNER_UID'",
+      "$id": { ".validate": "newData.isString() && newData.val().length <= 4000" }
+    },
+
+    "ai_responses": {
+      ".read": "auth != null && auth.uid === 'REPLACE_WITH_OWNER_UID'",
+      ".write": "auth != null && auth.uid === 'REPLACE_WITH_OWNER_UID'"
+    }
+  }
+}
